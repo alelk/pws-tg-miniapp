@@ -4,6 +4,9 @@ prepare:
 
 ```shell
 ./gradlew jsBrowserDistribution
+```
+
+```shell
 git checkout gh-pages
 git reset --hard
 cp -r composeApp/build/dist/js/productionExecutable/* .
@@ -26,6 +29,9 @@ push:
 
 ```shell
 git push origin gh-pages --force
+```
+
+```shell
 git checkout main
 ```
 
