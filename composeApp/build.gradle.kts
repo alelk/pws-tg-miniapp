@@ -63,6 +63,9 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutinesSwing)
         }
+        jsMain.dependencies {
+            implementation("io.github.kirillNay:tg-mini-app:1.1.0")
+        }
     }
 }
 
