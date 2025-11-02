@@ -7,9 +7,17 @@ prepare:
 ```
 
 ```shell
+mkdir ../pws-ui-js-dist
+cp -r composeApp/build/dist/js/productionExecutable/* ../pws-ui-js-dist
+```
+
+```shell
 git checkout gh-pages
+```
+
+```shell
 git reset --hard
-cp -r composeApp/build/dist/js/productionExecutable/* .
+cp -r ../pws-ui-js-dist/* .
 git add ./*.css 
 git add ./*.html 
 git add ./*.js
