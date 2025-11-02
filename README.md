@@ -4,23 +4,22 @@ prepare:
 
 ```shell
 ./gradlew jsBrowserDistribution
-git checkout --orphan gh-pages
+git checkout gh-pages
 git reset --hard
 cp -r composeApp/build/dist/js/productionExecutable/* .
-git add styles.css 
-git add index.html 
-git add composeApp.js
-git add js-reexport-symbols.mjs 
-git add skiko.mjs 
-git add skiko.wasm 
-git add skikod8.mjs 
+git add ./*.css 
+git add ./*.html 
+git add ./*.js
+git add ./*.mjs 
+git add ./*.wasm 
+git add ./*.js.map 
 git add composeResources/
 ```
 
 commit:
 
 ```shell
-,git commit -m "publish next version"
+git commit -m "publish next version"
 ```
 
 push:
