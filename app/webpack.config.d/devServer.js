@@ -6,19 +6,9 @@ if (!config.devServer) {
   config.devServer = {};
 }
 
-// Accept connections from all hosts (disables Invalid Host header)
 config.devServer.allowedHosts = 'all';
-
-// Listen on all interfaces so a tunnel (ngrok, cloudflare) can reach it
 config.devServer.host = '0.0.0.0';
-
-// Set desired port
-config.devServer.port = 8081;
-
-// Optional: relax headers / CORS if needed for embedded scenarios
 config.devServer.headers = {
   'Access-Control-Allow-Origin': '*',
 };
-
-// Ensure static watching settings from other config files are preserved.
 

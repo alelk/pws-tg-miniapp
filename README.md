@@ -6,6 +6,10 @@
 
 go online (development):
 
+```shell
+cd app/build/dist/js/productionExecutable
+npx serve -l 8081
+```
 
 ### Publish to github pages
 

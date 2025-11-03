@@ -40,7 +40,7 @@ kotlin {
         }
         jsMain {
             dependencies {
-                implementation("io.github.kirillNay:tg-mini-app:1.2.0")
+                implementation("io.github.kirillNay:tg-mini-app:1.2.2")
             }
         }
     }
