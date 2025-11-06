@@ -8,6 +8,6 @@ fun main() {
 
     telegramWebApp { style ->
         val userName = webApp.initDataUnsafe.user?.firstName + " " + webApp.initDataUnsafe.user?.lastName
-        App(userName)
+        App()
     }
 }

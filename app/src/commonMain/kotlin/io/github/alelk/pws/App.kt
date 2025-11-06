@@ -1,49 +1,48 @@
 package io.github.alelk.pws
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.Composable
+import cafe.adriel.voyager.core.registry.ScreenRegistry
+import cafe.adriel.voyager.core.registry.rememberScreen
+import cafe.adriel.voyager.navigator.Navigator
+import io.github.alelk.pws.app.mockDataModule
+import io.github.alelk.pws.core.navigation.SharedScreens
+import io.github.alelk.pws.features.book.songs.bookSongsScreenModelModule
+import io.github.alelk.pws.features.book.songs.bookSongsScreenModule
+import io.github.alelk.pws.features.books.booksScreenModelModule
+import io.github.alelk.pws.features.books.booksScreenModule
+import io.github.alelk.pws.features.song.detail.songDetailScreenModelModule
+import io.github.alelk.pws.features.song.detail.songDetailScreenModule
+import org.koin.compose.KoinApplication
+import org.koin.dsl.koinApplication
 
-import pws_ui.app.generated.resources.Res
-import pws_ui.app.generated.resources.compose_multiplatform
+private var screensRegistered = false
 
 @Composable
-@Preview
-fun App(user: String) {
-    MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
-        Column(
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.primaryContainer)
-                .safeContentPadding()
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me $user!")
-            }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
-                }
-            }
-        }
+fun App() {
+  if (!screensRegistered) {
+    ScreenRegistry {
+      booksScreenModule()
+      bookSongsScreenModule()
+      songDetailScreenModule()
     }
+    screensRegistered = true
+  }
+
+  // Start Koin inside composition (for simplicity). In production move to platform init.
+  KoinApplication(application = {
+    koinApplication {
+      modules(
+        mockDataModule,
+        booksScreenModelModule,
+        bookSongsScreenModelModule,
+        songDetailScreenModelModule
+      )
+    }
+  }) {
+    MaterialTheme {
+      val root = rememberScreen(SharedScreens.Books)
+      Navigator(root)
+    }
+  }
 }
