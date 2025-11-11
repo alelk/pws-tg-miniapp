@@ -31,5 +31,10 @@ include(
   ":core:navigation",
 
   ":shared",
-  ":features"
+  ":features",
+
+  ":server:app",
+  ":server:transport",
+  ":server:infra",
+  ":server:di"
 )
