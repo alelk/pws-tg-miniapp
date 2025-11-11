@@ -24,8 +24,8 @@ plugins {
 include(
   ":app",
 
-  ":api-contract",
-  ":api-mapping",
+  ":api:contract",
+  ":api:mapping",
 
   ":core:navigation",
 
