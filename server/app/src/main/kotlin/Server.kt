@@ -2,6 +2,7 @@ package io.github.alelk.pws.server.app
 
 import io.github.alelk.pws.domain.book.repository.BookRepository
 import io.github.alelk.pws.domain.song.repository.SongRepository
+import io.github.alelk.pws.server.di.DataSeeder
 import io.github.alelk.pws.server.di.appModule
 import io.github.alelk.pws.server.transport.plugins.configureMonitoring
 import io.github.alelk.pws.server.transport.plugins.configureResources
@@ -16,6 +17,7 @@ import io.ktor.server.netty.Netty
 import io.ktor.server.routing.routing
 import org.koin.ktor.plugin.Koin
 import org.koin.ktor.ext.get
+import org.koin.ktor.ext.inject
 
 fun Application.module() {
   install(Koin) { modules(appModule) }
@@ -24,6 +26,9 @@ fun Application.module() {
   configureSerialization()
   configureStatusPages()
 
+  val seeder by inject<DataSeeder>()
+  seeder.seedIfEmpty()
+
   bookRoutes(get<BookRepository>())
   songRoutes(get<SongRepository>())
 }
@@ -31,4 +36,3 @@ fun Application.module() {
 fun main() {
   embeddedServer(Netty, port = 8080, module = Application::module).start(wait = true)
 }
-

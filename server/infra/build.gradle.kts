@@ -8,7 +8,7 @@ dependencies {
   implementation(libs.exposed.kotlin.datetime)
   implementation(libs.h2)
   implementation(libs.koin.ktor)
+  implementation(libs.kotlinx.coroutinesCore)
 }
 
 kotlin { jvmToolchain(21) }
-

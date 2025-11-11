@@ -19,6 +19,10 @@ dependencies {
   implementation(projects.api.mapping)
   implementation(projects.server.transport)
   implementation(projects.server.di)
+
+  implementation(libs.exposed.core)
+  implementation(libs.exposed.jdbc)
+  implementation(libs.h2)
 }
 
 application {
