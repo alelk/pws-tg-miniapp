@@ -6,3 +6,4 @@ import kotlin.jvm.JvmInline
 @JvmInline
 @Serializable
 value class LyricDto(private val parts: List<LyricPartDto>) : List<LyricPartDto> by parts
+

@@ -25,6 +25,7 @@ include(
   ":app",
 
   ":api-contract",
+  ":api-mapping",
 
   ":core:navigation",
 

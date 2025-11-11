@@ -5,4 +5,4 @@ import kotlin.jvm.JvmInline
 
 @JvmInline
 @Serializable
-class VersionDto(val value: String)
+value class VersionDto(val value: String)

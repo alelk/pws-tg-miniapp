@@ -5,4 +5,4 @@ import kotlin.jvm.JvmInline
 
 @JvmInline
 @Serializable
-class LocaleDto(val value: String)
+value class LocaleDto(val value: String)
