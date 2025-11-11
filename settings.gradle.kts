@@ -2,30 +2,32 @@ rootProject.name = "pws-ui"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-    }
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+  }
 }
 
 dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-        mavenLocal()
-    }
+  repositories {
+    google()
+    mavenCentral()
+    mavenLocal()
+  }
 }
 
 plugins {
-    id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
+  id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
 }
 
 include(
-    ":app",
+  ":app",
 
-    ":core:navigation",
+  ":api-contract",
 
-    ":shared",
-    ":features"
+  ":core:navigation",
+
+  ":shared",
+  ":features"
 )
