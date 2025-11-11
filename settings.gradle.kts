@@ -26,6 +26,7 @@ include(
 
   ":api:contract",
   ":api:mapping",
+  ":api:client",
 
   ":core:navigation",
 

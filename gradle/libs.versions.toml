@@ -4,7 +4,7 @@ composeHotReload = "1.0.0-rc02"
 composeMultiplatform = "1.9.2"
 kotlin = "2.2.21"
 kotlinx-coroutines = "1.10.2"
-ktor = "3.3.1"
+ktor = "3.3.2"
 logback = "1.5.20"
 pws = "2.2.7"
 voyager = "1.1.0-beta03"
@@ -13,9 +13,11 @@ kotlinx-serialization-json = "1.6.3"
 
 [libraries]
 
+# PWS
+pws-domain = { module = "io.github.alelk.pws:domain", version.ref = "pws" }
+
 androidx-lifecycle-viewmodelCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtimeCompose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
-logback = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 
 ktor-serverCore = { module = "io.ktor:ktor-server-core-jvm", version.ref = "ktor" }
 ktor-serverNetty = { module = "io.ktor:ktor-server-netty-jvm", version.ref = "ktor" }
@@ -33,12 +35,18 @@ ktor-resources = { module = "io.ktor:ktor-resources", version.ref = "ktor" }
 ktor-serialization-kotlinx-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization-json" }
 
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-testJunit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 
-# PWS
-pws-domain = { module = "io.github.alelk.pws:domain", version.ref = "pws" }
-
+ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-client-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-client-resources = { module = "io.ktor:ktor-client-resources", version.ref = "ktor" }
+ktor-client-jsonSerialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+ktor-client-js = { module = "io.ktor:ktor-client-js", version.ref = "ktor" }
 
 [plugins]
 composeHotReload = { id = "org.jetbrains.compose.hot-reload", version.ref = "composeHotReload" } # https://central.sonatype.com/artifact/org.jetbrains.compose.hot-reload/hot-reload-core/versions
